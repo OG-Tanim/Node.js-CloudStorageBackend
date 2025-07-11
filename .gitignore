@@ -66,6 +66,8 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
+# .env files are ignored to prevent sensitive information from being committed
+# .env.example is explicitly not ignored to provide a template for environment variables
 .env
 .env.*
 !.env.example
@@ -138,6 +140,11 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-#Extras 
-planning.md 
+# OS generated files
+.DS_Store
+.Trashes
+ehthumbs.db
+Thumbs.db
 
+# Extras
+planning.md
