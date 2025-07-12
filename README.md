@@ -99,22 +99,23 @@ All API endpoints are prefixed with `/api`. For example, the signup endpoint is 
 
 ### 🗂️ Files (`/api/files`)
 
-| Method   | Endpoint           | Description                                               |
-| :------- | :----------------- | :-------------------------------------------------------- |
-| `POST`   | `/upload`          | Upload a new file to Cloudinary                           |
-| `GET`    | `/root/:folderId?` | Get files within a specific folder or root                |
-| `GET`    | `/type/:type`      | Retrieve files filtered by their type                     |
-| `GET`    | `/locked`          | Get all locked files (requires `x-file-passcode`)         |
-| `GET`    | `/favorites`       | Retrieve all files marked as favorite                     |
-| `GET`    | `/date/:date`      | Get files created on a specific date (`DD-MM-YYYY`)       |
-| `GET`    | `/month/:month`    | Get files created in a specific month (`MM-YYYY`)         |
-| `GET`    | `/:id`             | Get a single file by its ID (`checkFileAccess` applied)   |
-| `DELETE` | `/:id`             | Delete a file by its ID                                   |
-| `PATCH`  | `/:id/rename`      | Rename a file by its ID                                   |
-| `PATCH`  | `/:id/toggle`      | Toggle favorite or lock status of a file                  |
-| `POST`   | `/:id/duplicate`   | Create a duplicate of an existing file                    |
-| `POST`   | `/:id/share`       | Generate a public shareable link for a file               |
-| `GET`    | `/public/:slug`    | Access a publicly shared file via its slug (rate limited) |
+| Method   | Endpoint          | Description                                               |
+| :------- | :---------------- | :-------------------------------------------------------- |
+| `POST`   | `/upload`         | Upload a new file to Cloudinary                           |
+| `GET`    | `/root`           | Get files within root                                     |
+| `GET`    | `/root/:folderId` | Get files within a specific folder or root                |
+| `GET`    | `/type/:type`     | Retrieve files filtered by their type                     |
+| `GET`    | `/locked`         | Get all locked files (requires `x-file-passcode`)         |
+| `GET`    | `/favorites`      | Retrieve all files marked as favorite                     |
+| `GET`    | `/date/:date`     | Get files created on a specific date (`DD-MM-YYYY`)       |
+| `GET`    | `/month/:month`   | Get files created in a specific month (`MM-YYYY`)         |
+| `GET`    | `/:id`            | Get a single file by its ID (`checkFileAccess` applied)   |
+| `DELETE` | `/:id`            | Delete a file by its ID                                   |
+| `PATCH`  | `/:id/rename`     | Rename a file by its ID                                   |
+| `PATCH`  | `/:id/toggle`     | Toggle favorite or lock status of a file                  |
+| `POST`   | `/:id/duplicate`  | Create a duplicate of an existing file                    |
+| `POST`   | `/:id/share`      | Generate a public shareable link for a file               |
+| `GET`    | `/public/:slug`   | Access a publicly shared file via its slug (rate limited) |
 
 ### 📁 Folders (`/api/folders`)
 

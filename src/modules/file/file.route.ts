@@ -16,7 +16,8 @@ router.post('/:id/duplicate', requireAuth, checkFileAccess, FileController.dupli
 router.post('/:id/share', requireAuth, checkFileAccess, FileController.shareFile);
 
 //Get Files by Folder
-router.get('/root/:folderId?', requireAuth, FileController.getFilesByFolder);
+router.get('/root', requireAuth, FileController.getFilesByFolder);
+router.get('/root/:folderId', requireAuth, FileController.getFilesByFolder);
 
 //Get Specific File
 router.get('/:id', requireAuth, checkFileAccess, FileController.getFileById);
