@@ -11,7 +11,7 @@ export const checkFileAccess = async (req: AuthRequest, res: Response, next: Nex
   const file = await File.findById(fileId);
   if (!file) return res.status(404).json({ message: 'File not found' });
 
-  const isOwner = file.owner.toString() === req.user._id.toString();
+  const isOwner = req.user && file.owner.toString() === req.user._id.toString();
   if (file.isLocked && !isOwner) {
     const owner = await User.findById(file.owner);
     const match = await bcrypt.compare(passcode as string, owner?.filePasscode || '');

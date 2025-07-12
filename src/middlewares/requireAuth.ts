@@ -8,8 +8,15 @@ export interface AuthRequest extends Request {
 }
 
 export const requireAuth = async (req: AuthRequest, res: Response, next: NextFunction) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader?.startsWith('Bearer ')) {
+    return res.status(401).json({ message: 'Access Token Missing' }); //sample Authorization Header: 'Bearer token123'
+  }
+
+  const token = authHeader?.split(' ')[1];
+
   try {
-    const token = req.headers.authorization?.split(' ')[1];
     if (!token) return res.status(401).json({ message: 'Unauthorized' });
 
     const decoded = jwt.verify(token, env.jwtSecret!);
