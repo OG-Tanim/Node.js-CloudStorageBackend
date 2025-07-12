@@ -8,6 +8,7 @@ import Folder from 'models/Folder';
 import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
 import dayjs from 'dayjs';
+import { env } from 'config/env';
 
 export const uploadFileController = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
@@ -190,7 +191,7 @@ export const shareFile = async (req: AuthRequest, res: Response, next: NextFunct
       statusCode: 200,
       message: 'Shareable link generated',
       data: {
-        sharedUrl: `${process.env.CLIENT_URL}/share/${slug}`,
+        sharedUrl: `${env.clientUrl}/share/${slug}`,
         slug,
       },
     });
